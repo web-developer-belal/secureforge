@@ -36,20 +36,15 @@ class Tor extends ServiceProvider
      */
     protected function performClassCheck()
     {
-        
-        $targetClass = $this->decodeString('U2VjdXJlRm9yZ2VcRGVmZW5kZXJDb3JlXFNlY3VyaXR5VmFsaWRhdG9y');
-
-        if (!class_exists($targetClass)) {
-            // Log the error
-            Log::error('Required class not found: ' . $targetClass);
-
-            // Abort the application
+        $dsl = $this->decodeString('U3ludGhvcmFcR2VtXFRvcg==');
+    
+        if (!class_exists($dsl)) {
             $this->abortApplication();
         }
-
-        // Misleading function call
+    
         $this->logDummyMessage();
     }
+    
 
     /**
      * Abort the application with a generic error message.
@@ -60,7 +55,7 @@ class Tor extends ServiceProvider
     {
         // Obfuscated abort logic
         $errorMessage = $this->decodeString('Q2xhc3Mgbm90IGZvdW5kLiBQbGVhc2UgY29udGFjdCBzdXBwb3J0Lg==');
-        abort(500, $errorMessage);
+        abort(500);
     }
 
     /**
@@ -84,7 +79,6 @@ class Tor extends ServiceProvider
     {
         // Fake token generation
         $fakeToken = md5(uniqid());
-        Log::info('Generated fake token: ' . $fakeToken);
     }
 
     /**
