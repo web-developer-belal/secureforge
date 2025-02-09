@@ -1,0 +1,20 @@
+{
+    "name": "secureforge/defendercore",
+    "description": "Laravel code security",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Secureforge\\Defendercore\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Secureforge\\Defendercore\\OrbitProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
