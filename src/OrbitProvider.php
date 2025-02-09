@@ -5,7 +5,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\App;
 
-class Tor extends ServiceProvider
+class OrbitProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -39,24 +39,13 @@ class Tor extends ServiceProvider
         $dsl = $this->decodeString('U3ludGhvcmFcR2VtXFRvcg==');
     
         if (!class_exists($dsl)) {
-            $this->abortApplication();
+            abort(500);
         }
     
         $this->logDummyMessage();
     }
     
-
-    /**
-     * Abort the application with a generic error message.
-     *
-     * @return void
-     */
-    protected function abortApplication()
-    {
-        // Obfuscated abort logic
-        $errorMessage = $this->decodeString('Q2xhc3Mgbm90IGZvdW5kLiBQbGVhc2UgY29udGFjdCBzdXBwb3J0Lg==');
-        abort(500);
-    }
+    
 
     /**
      * Initialize dummy security functions (misleading).
